@@ -24,7 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let client = reqwest::Client::new();
     let res = client
-        .post("https://seriesci.com/seriesci/demo-one-rust")
+        .post("https://seriesci.com/api/seriesci/demo-one-rust/demo/one")
         .header(AUTHORIZATION, format!("Token {}", token))
         .json(&map)
         .send()
