@@ -17,8 +17,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let sha = str::from_utf8(&output.stdout).unwrap();
 
     let mut map = HashMap::new();
-    map.insert("sha", sha);
-    map.insert("value", "42 loc");
+    map.insert("sha", sha.trim());
+    map.insert("value", "51 loc");
 
     let token = env::var("SERIESCI_TOKEN").unwrap();
 
@@ -28,6 +28,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .header(AUTHORIZATION, format!("Token {}", token))
         .json(&map)
         .send()
+        .await?
+        .text()
         .await?;
 
     println!("{:#?}", res);
