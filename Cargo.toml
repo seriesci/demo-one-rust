@@ -1,0 +1,9 @@
+[package]
+name = "demo-one-rust"
+version = "0.1.0"
+authors = ["Mirco Zeiss <mirco.zeiss@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+tokio = { version = "0.2", features = ["full"] }
+reqwest = { version = "0.10.0", features = ["json"] }
