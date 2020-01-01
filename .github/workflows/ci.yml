@@ -7,8 +7,12 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@master
+
       - uses: actions-rs/cargo@v1
+        env:
+            SERIESCI_TOKEN: ${{ secrets.SERIESCI_TOKEN }}
         with:
           command: run
         #   args: --release --all-features
